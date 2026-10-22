@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Галерея мешканців — Занурення</title>
+  <meta name="description" content="Галерея глибоководних мешканців океану: від китової акули до істот Маріанської западини.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page">
+  <header class="site-header">
+    <a class="brand" href="index.html">Занурення</a>
+    <nav class="nav" aria-label="Основне меню">
+      <a href="index.html">Занурення</a>
+      <a href="gallery.html" aria-current="page">Галерея</a>
+      <a href="contact.html">Зворотний зв’язок</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1 class="page-title">Галерея мешканців</h1>
+    <p class="page-lead" id="count" aria-live="polite"></p>
+
+    <div class="toolbar">
+      <input class="search" id="search" type="search" placeholder="Пошук за назвою…" aria-label="Пошук за назвою" autocomplete="off">
+      <button class="btn" id="rand" type="button">🎲 Випадкова істота</button>
+      <div class="chips" id="chips" role="group" aria-label="Фільтр за зоною"></div>
+    </div>
+
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty" hidden>Нічого не знайдено. Спробуйте інший запит або зону.</p>
+  </main>
+
+  <!-- Модальне вікно -->
+  <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <article class="modal">
+      <button class="modal-close" id="mClose" aria-label="Закрити">×</button>
+      <div class="modal-media" id="mMedia"></div>
+      <div class="modal-content">
+        <span class="tag" id="mTag"></span>
+        <div class="dbar" id="mDepth" title="Глибина проживання"><span class="dbar-fill"></span></div>
+        <div class="dbar-l"><span>поверхня</span><span>11 000 м</span></div>
+        <h2 id="mTitle"></h2>
+        <p class="latin" id="mLatin"></p>
+        <div id="mDesc"></div>
+        <div class="facts" id="mFacts"></div>
+        <p class="fun" id="mFun"></p>
+        <div class="modal-actions">
+          <button class="btn" id="mFav" aria-pressed="false">♡ Додати в улюблені</button>
+          <a class="btn primary" id="mWrite" href="contact.html">Написати про цю істоту</a>
+        </div>
+        <div class="modal-nav">
+          <button class="btn" id="mPrev">← Попередня</button>
+          <button class="btn" id="mNext">Наступна →</button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <footer class="site-footer">Навчальний проєкт · Ільченко Даніл, ІДП-31</footer>
+
+  <script src="js/fx.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>

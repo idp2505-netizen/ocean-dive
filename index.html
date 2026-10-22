@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Занурення — подорож на дно океану</title>
+  <meta name="description" content="Імерсивний сайт: прокручуйте сторінку та занурюйтесь від поверхні до Маріанської западини.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dive">
+  <div id="bg"></div>
+  <div id="rays"></div>
+  <canvas id="snow"></canvas>
+  <div id="vignette" aria-hidden="true"></div>
+  <div id="lure" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">Занурення</a>
+    <nav class="nav" aria-label="Основне меню">
+      <a href="index.html" aria-current="page">Занурення</a>
+      <a href="gallery.html">Галерея</a>
+      <a href="contact.html">Зворотний зв’язок</a>
+    </nav>
+  </header>
+
+  <!-- Шкала глибини -->
+  <aside class="hud" aria-live="off">
+    <div class="hud-read">
+      <div class="hud-depth"><span id="depthNum">0</span><small>м</small></div>
+      <div class="hud-zone" id="depthZone">Поверхня</div>
+      <div class="hud-press">тиск ≈ <span id="pressNum">1</span> атм</div>
+    </div>
+    <div class="hud-bar" id="hudBar"><div class="hud-fill" id="hudFill"></div><div class="hud-dot" id="hudDot"></div></div>
+  </aside>
+
+  <!-- Компактна глибина для телефона -->
+  <div class="pill" id="pill" aria-hidden="true"><b id="pillNum">0</b> м · <span id="pillZone">Поверхня</span></div>
+
+  <main>
+    <!-- Поверхня -->
+    <section class="hero" id="top">
+      <div class="sky"><div class="sun"></div><div class="cloud c1"></div><div class="cloud c2"></div></div>
+      <svg class="waves" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M-60 40 Q 40 8 140 40 T 340 40 T 540 40 T 740 40 T 940 40 T 1140 40 T 1340 40 V80 H-60Z" fill="#27b3dd"/>
+        <path d="M-60 52 Q 40 24 140 52 T 340 52 T 540 52 T 740 52 T 940 52 T 1140 52 T 1340 52" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2"/>
+      </svg>
+      <div class="hero-text">
+        <h1>Занурення</h1>
+        <p>Прокручуйте сторінку — і з кожним рухом коліщатка ви опускатиметесь глибше: від сонячної поверхні до дна Маріанської западини.</p>
+        <a class="scroll-cue" href="#epi"><span>Занурюватись</span><i></i></a>
+      </div>
+    </section>
+
+    <section class="zone" id="epi" data-zone="epi">
+      <div class="zone-intro">
+        <div class="range">0 – 200 м</div>
+        <h2>Епіпелагіаль</h2>
+        <p>Сонячна зона. Тут найбільше світла й кольорів: вода прозора та тепла, а життя вирує — від велетенських акул до риб, що вилітають у повітря.</p>
+        <div class="temp">Температура: до +30 °C · Тиск: 1–21 атм</div>
+      </div>
+    </section>
+
+    <section class="zone right" id="meso" data-zone="meso">
+      <div class="zone-intro">
+        <div class="range">200 – 1000 м</div>
+        <h2>Мезопелагіаль</h2>
+        <p>Сутінкова зона. Світло поступово зникає, кольори стають синіми й чорними. Тут починається біолюмінесценція — мешканці самі виробляють світло.</p>
+        <div class="temp">Температура: від +20 до +4 °C · Тиск: 21–101 атм</div>
+      </div>
+    </section>
+
+    <section class="zone" id="bathy" data-zone="bathy">
+      <div class="zone-intro">
+        <div class="range">1000 – 4000 м</div>
+        <h2>Батіпелагіаль</h2>
+        <p>Північна зона. Абсолютна темрява. Єдине світло — це світіння самих тварин. Рухайте курсором: його світло, як приманка вудильника, розкриє істот у темряві.</p>
+        <div class="temp">Температура: +2…+4 °C · Тиск: 101–401 атм</div>
+      </div>
+    </section>
+
+    <section class="zone right" id="abyss" data-zone="abyss">
+      <div class="zone-intro">
+        <div class="range">4000 – 6000 м</div>
+        <h2>Абісаль</h2>
+        <p>Зона екстремального тиску й холоду — дно океану. Тут живуть повільні мешканці мулу й ті, хто харчується рештками, що опускаються згори.</p>
+        <div class="temp">Температура: +1…+3 °C · Тиск: 401–601 атм</div>
+      </div>
+    </section>
+
+    <section class="zone" id="hadal" data-zone="hadal">
+      <div class="zone-intro">
+        <div class="range">6000 – 11 000+ м</div>
+        <h2>Гадаль</h2>
+        <p>Траншеї та западини на кшталт Маріанської. Максимальна глибина й неймовірний тиск — понад тисячу атмосфер. Тут живуть істоти, які змогли пристосуватися до найекстремальнішого місця на Землі.</p>
+        <div class="temp">Температура: +1…+4 °C · Тиск: 601–1100+ атм</div>
+      </div>
+    </section>
+
+    <section class="bottom" id="bottom">
+      <div>
+        <h2>Ви на дні</h2>
+        <p>Ви пройшли шлях від поверхні до найглибшої точки океану. Подивіться на всіх мешканців уважніше — у галереї для кожного є детальна історія.</p>
+        <div class="btns">
+          <a class="btn primary" href="gallery.html">Відкрити галерею</a>
+          <a class="btn" href="contact.html">Залишити відгук</a>
+          <a class="btn" href="#top">Виринути ↑</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" style="background:#000;border-color:#222">Навчальний проєкт · Ільченко Даніл, ІДП-31</footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/dive.js"></script>
+  <script src="js/extra.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Зворотний зв’язок — Занурення</title>
+  <meta name="description" content="Залишіть відгук про сайт або запропонуйте істоту, яку варто додати.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page">
+  <header class="site-header">
+    <a class="brand" href="index.html">Занурення</a>
+    <nav class="nav" aria-label="Основне меню">
+      <a href="index.html">Занурення</a>
+      <a href="gallery.html">Галерея</a>
+      <a href="contact.html" aria-current="page">Зворотний зв’язок</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="form-wrap">
+      <h1 class="page-title">Зворотний зв’язок</h1>
+      <p class="page-lead">Розкажіть, що вам сподобалось на сайті, або запропонуйте, яку істоту додати.</p>
+
+      <form id="form" novalidate>
+        <div class="field" data-f="name">
+          <label for="name">Ім’я</label>
+          <input type="text" id="name" name="name" autocomplete="name" maxlength="60">
+          <p class="err" id="err-name"></p>
+        </div>
+
+        <div class="field" data-f="email">
+          <label for="email">Електронна пошта</label>
+          <input type="email" id="email" name="email" autocomplete="email">
+          <p class="err" id="err-email"></p>
+        </div>
+
+        <div class="field" data-f="topic">
+          <label for="topic">Тема</label>
+          <select id="topic" name="topic">
+            <option value="">Оберіть тему</option>
+            <option>Відгук про сайт</option>
+            <option>Пропозиція нової істоти</option>
+            <option>Помилка на сайті</option>
+            <option>Інше</option>
+          </select>
+          <p class="err" id="err-topic"></p>
+        </div>
+
+        <div class="field" data-f="fav">
+          <label for="fav">Улюблена істота</label>
+          <select id="fav" name="fav"><option value="">Не обрано</option></select>
+        </div>
+
+        <fieldset class="field" data-f="rating">
+          <legend>Оцінка сайту</legend>
+          <div class="rating" id="rating"></div>
+        </fieldset>
+
+        <div class="field" data-f="message">
+          <label for="message">Повідомлення</label>
+          <textarea id="message" name="message" maxlength="600"></textarea>
+          <div class="count"><span id="cnt">0</span> / 600</div>
+          <p class="err" id="err-message"></p>
+        </div>
+
+        <button class="btn primary" type="submit">Надіслати</button>
+      </form>
+
+      <section class="reviews" aria-labelledby="rv-title">
+        <h2 id="rv-title">Відгуки відвідувачів</h2>
+        <p class="page-lead" style="margin:0">Дані зберігаються у вашому браузері (localStorage) та підтягуються з JS-бази.</p>
+        <div class="stats" id="stats"></div>
+        <div class="review-list" id="reviews"></div>
+        <p style="margin-top:18px"><button class="btn" id="clear" type="button">Видалити мої відгуки</button></p>
+      </section>
+    </div>
+  </main>
+
+  <div class="modal-backdrop toast-modal" id="thanks" role="dialog" aria-modal="true" aria-labelledby="thTitle">
+    <div class="modal">
+      <div class="modal-content">
+        <div class="big">🐋</div>
+        <h2 id="thTitle">Дякуємо за відгук!</h2>
+        <p id="thText">Ваше повідомлення збережено.</p>
+        <div class="modal-actions" style="justify-content:center">
+          <a class="btn primary" href="gallery.html">До галереї</a>
+          <button class="btn" id="thClose" type="button">Закрити</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">Навчальний проєкт · Ільченко Даніл, ІДП-31</footer>
+
+  <script src="js/fx.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>
